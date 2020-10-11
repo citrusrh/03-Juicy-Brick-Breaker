@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/SuperMario256.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Levels/NextLevel.gd" type="Script" id=2]
+[ext_resource path="res://Assets/neonbrand-XEsx2NVpqWY-unsplash.jpg" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="NextLevel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_right = 1024.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 1 )
+text = "LEVEL COMPLETE!"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next" type="Button" parent="."]
+margin_left = 412.0
+margin_top = 200.0
+margin_right = 612.0
+margin_bottom = 280.0
+custom_fonts/font = SubResource( 2 )
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 412.0
+margin_top = 350.0
+margin_right = 612.0
+margin_bottom = 430.0
+custom_fonts/font = SubResource( 2 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512, 325 )
+scale = Vector2( 0.25, 0.25 )
+z_index = -1
+texture = ExtResource( 3 )
+[connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
